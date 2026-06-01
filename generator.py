@@ -29,10 +29,10 @@ services_list = [
     ("plumbing", "Plumbing", "electrical-plumbing"),
     ("deck", "Deck & Siding", "deck-siding"),
 ]
-
 def head(title, desc, canonical, depth=0):
     prefix = "../" * depth
-    return f"""<!DOCTYPE html>
+    return f"""
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -41,7 +41,7 @@ def head(title, desc, canonical, depth=0):
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{canonical}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{prefix}css/style.css">
 </head>
 <body>
@@ -51,7 +51,7 @@ def head(title, desc, canonical, depth=0):
 def nav(prefix=""):
     logo_path = f"{prefix}images/logo.png"
     return f"""
-<nav><div class="container nav-container"><a href="{prefix}index.html" class="nav-logo-link"><img src="{logo_path}" alt="Dre Home Services" class="nav-logo-img"></a><button class="mobile-menu-btn" aria-label="Toggle menu">&#9776;</button><ul class="nav-links"><li><a href="{prefix}services.html">Services</a></li><li><a href="{prefix}areas-we-serve.html">Areas We Serve</a></li><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li></ul><div class="nav-cta"><a href="tel:{PHONE_RAW}" class="phone-link">{PHONE}</a><button class="btn btn-primary" data-open-modal>Free Estimate</button></div></div><div class="mobile-nav"><ul><li><a href="{prefix}services.html">Services</a></li><li><a href="{prefix}areas-we-serve.html">Areas We Serve</a></li><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li><li><button class="btn btn-primary" data-open-modal style="width:100%;margin-top:16px;">Free Estimate</button></li></ul></div></nav>
+<nav><div class="container nav-container"><a href="{prefix}index.html" class="nav-logo-link"><img src="{logo_path}" alt="Dre Home Services" class="nav-logo-img"></a><button class="mobile-menu-btn" aria-label="Toggle menu">&#9776;</button><ul class="nav-links"><li><a href="{prefix}services.html">Services</a></li><li><a href="{prefix}areas-we-serve.html">Areas We Serve</a></li><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li></ul><div class="nav-cta"><a href="tel:{PHONE_RAW}" class="phone-link">{PHONE}</a><button class="btn btn-primary" data-open-modal>Free Estimate</button></div></div><div class="mobile-nav"><ul><li><a href="{prefix}services.html">Services</a></li><li><a href="{prefix}areas-we-serve.html">Areas We Serve</a></li><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li><li><button class="btn btn-primary" data-open-modal style="width:100%;margin-top:12px;">Free Estimate</button></li></ul></div></nav>
 """
 
 def modal_overlay(prefix=""):
@@ -77,8 +77,8 @@ def modal_overlay(prefix=""):
         </div>
         <div class="form-group"><label for="city">Your City *</label><select id="city" name="city" required><option value="">Select your city...</option><option value="Fredericksburg">Fredericksburg</option><option value="King George">King George</option><option value="Caroline">Caroline</option><option value="Stafford">Stafford</option><option value="Culpeper">Culpeper</option><option value="Woodbridge">Woodbridge</option><option value="Other">Other</option></select></div>
         <div class="form-group"><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Tell us about your project, timeline, and any specific needs..."></textarea></div>
-        <button type="submit" class="btn btn-primary btn-large">Get My Free Estimate</button>
-        <p style="text-align:center;font-size:0.8rem;color:var(--text-muted);margin-top:16px;">Or call us directly at <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
+        <button type="submit" class="btn btn-primary btn-large btn-glow">Get My Free Estimate</button>
+        <p style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:16px;">Or call us directly at <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
       </form>
       <div class="modal-success" id="modal-success">
         <div class="modal-success-icon">&#10003;</div>
@@ -92,7 +92,7 @@ def modal_overlay(prefix=""):
 
 def cta_banner(prefix=""):
     return f"""
-<section class="cta-banner"><div class="container reveal"><h2>Ready to Get Started?</h2><p>Call Dre Home Services today for a free, no-obligation estimate. We serve Fredericksburg, Stafford, Woodbridge, and all surrounding areas.</p><div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;"><button class="btn btn-primary btn-large" data-open-modal>Get Free Estimate</button><a href="tel:{PHONE_RAW}" class="btn btn-dark btn-large">Call {PHONE}</a></div></div></section>
+<section class="cta-banner"><div class="container"><h2 class="sr">Ready to Get Started?</h2><p class="sr sr-delay-1">Call Dre Home Services today for a free, no-obligation estimate. We serve Fredericksburg, Stafford, Woodbridge, and all surrounding areas.</p><div class="sr sr-delay-2" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;"><button class="btn btn-primary btn-large btn-glow" data-open-modal>Get Free Estimate</button><a href="tel:{PHONE_RAW}" class="btn btn-outline btn-large">Call {PHONE}</a></div></div></section>
 """
 
 def footer(prefix=""):
@@ -105,7 +105,7 @@ def footer(prefix=""):
 
 def page_header(label, h1, p):
     return f"""
-<header class="page-header"><div class="container reveal"><span class="section-label">{label}</span><h1>{h1}</h1><p>{p}</p></div></header>
+<header class="page-header"><div class="container"><span class="section-label">{label}</span><h1>{h1}</h1><p>{p}</p></div></header>
 """
 
 # --- City pages ---
