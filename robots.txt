@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://drehomeservices.com/sitemap.xml
+Sitemap: https://areli703.github.io/dre-home-services/sitemap.xml
