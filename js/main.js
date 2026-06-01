@@ -1,9 +1,9 @@
-/* Dre Home Services — Main JS */
+/* Dre Home Services LLC — Main JS v2 */
 
-// Enable JS-only scroll reveals
+// ---- Enable JS-only scroll reveals ----
 document.body.classList.add('js-on');
 
-// ---- Scroll Reveal with IntersectionObserver ----
+// ---- Scroll Reveal ----
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -14,15 +14,45 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ---- Mobile Nav ----
+// ---- Mobile Nav (Hamburger) ----
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mobileNav = document.querySelector('.mobile-nav');
+
+function toggleMobileMenu() {
+  if (!mobileNav) return;
+  const isOpen = mobileNav.classList.contains('open');
+  if (isOpen) {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    mobileNav.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
 if (mobileMenuBtn && mobileNav) {
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileNav.classList.toggle('open');
+  mobileMenuBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleMobileMenu();
   });
+
+  // Close when clicking a link
   mobileNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (mobileNav.classList.contains('open') &&
+        !mobileNav.contains(e.target) &&
+        !mobileMenuBtn.contains(e.target)) {
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    }
   });
 }
 
@@ -31,22 +61,66 @@ document.querySelectorAll('.faq-question').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.parentElement;
     const wasOpen = item.classList.contains('open');
-    // Close all
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    // Open clicked if it wasn't open
     if (!wasOpen) item.classList.add('open');
   });
 });
 
-// ---- Quote Form: POST to Nida Webhook ----
+// ---- Modal / Overlay Form ----
+const modalOverlay = document.getElementById('quote-modal');
+const modalCloseBtns = document.querySelectorAll('.modal-close, .modal-overlay');
 const quoteForm = document.getElementById('quote-form');
+const modalSuccess = document.getElementById('modal-success');
+
+function openModal() {
+  if (!modalOverlay) return;
+  modalOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  // Reset form state
+  if (quoteForm) quoteForm.style.display = 'block';
+  if (modalSuccess) modalSuccess.classList.remove('active');
+}
+
+function closeModal() {
+  if (!modalOverlay) return;
+  modalOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Open modal from any trigger button
+document.querySelectorAll('[data-open-modal]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openModal();
+  });
+});
+
+// Close from X button or overlay click
+if (modalOverlay) {
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay || e.target.closest('.modal-close')) {
+      closeModal();
+    }
+  });
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+    closeModal();
+  }
+});
+
+// ---- Form Submit → Nida Webhook ----
 if (quoteForm) {
   quoteForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = quoteForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
+    const originalText = submitBtn ? submitBtn.textContent : 'Submit';
+    if (submitBtn) {
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+    }
 
     const formData = new FormData(quoteForm);
     const payload = {
@@ -60,11 +134,10 @@ if (quoteForm) {
       submitted_at: new Date().toISOString()
     };
 
-    // TODO: Replace with actual Nida webhook URL once workspace is ready
+    // TODO: Replace with actual Nida webhook URL
     const WEBHOOK_URL = 'https://YOUR_NIDA_WEBHOOK_URL_HERE';
 
     try {
-      // For now, show success message (webhook will be wired up later)
       console.log('Form payload:', payload);
 
       /*
@@ -76,16 +149,20 @@ if (quoteForm) {
       if (!res.ok) throw new Error('Webhook failed');
       */
 
-      quoteForm.innerHTML = `
-        <div style="text-align:center;padding:40px 0;">
-          <div style="font-size:3rem;margin-bottom:16px;">&#9989;</div>
-          <h3 style="color:var(--brand-navy);margin-bottom:12px;">Quote Request Sent!</h3>
-          <p style="color:var(--text-secondary);">Andre will call you within 24 hours at ${payload.phone}.</p>
-        </div>
-      `;
+      // Show success state in modal
+      quoteForm.style.display = 'none';
+      if (modalSuccess) modalSuccess.classList.add('active');
+
+      // Auto-close after 4 seconds
+      setTimeout(() => {
+        closeModal();
+      }, 4000);
+
     } catch (err) {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
+      if (submitBtn) {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
       alert('Something went wrong. Please call (804) 848-9575 directly.');
     }
   });
@@ -102,10 +179,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ---- Phone link analytics placeholder ----
+// ---- Phone link tracking placeholder ----
 document.querySelectorAll('a[href^="tel:"]').forEach(link => {
   link.addEventListener('click', () => {
-    // Could send event to analytics here
     console.log('Phone call initiated:', link.href);
   });
 });

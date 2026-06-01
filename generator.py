@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bulk generator for Dre Home Services support pages + city pages."""
+"""Bulk generator for Dre Home Services support pages + city pages v2 (logo-matched, modal form, fixed hamburger)."""
 import os
 
 BASE = "/home/stephen/projects/dre-home-services"
@@ -30,7 +30,6 @@ services_list = [
     ("deck", "Deck & Siding", "deck-siding"),
 ]
 
-# --- Shared head/nav/footer helpers ---
 def head(title, desc, canonical, depth=0):
     prefix = "../" * depth
     return f"""<!DOCTYPE html>
@@ -46,27 +45,77 @@ def head(title, desc, canonical, depth=0):
 <link rel="stylesheet" href="{prefix}css/style.css">
 </head>
 <body>
-<div class="sticky-cta"><div class="sticky-cta-inner"><a href="tel:{PHONE_RAW}" class="btn btn-amber">Call Now</a><a href="{prefix}quote.html" class="btn btn-primary">Free Quote</a></div></div>
+<div class="sticky-cta"><div class="sticky-cta-inner"><a href="tel:{PHONE_RAW}" class="btn btn-dark">Call Now</a><button class="btn btn-primary" data-open-modal>Free Quote</button></div></div>
 """
 
 def nav(prefix=""):
-    return f"""<nav><div class="container nav-container"><a href="{prefix}index.html" class="logo"><div class="logo-icon">D</div><span>Dre Home Services</span></a><button class="mobile-menu-btn">&#9776;</button><ul class="nav-links"><li><a href="{prefix}services.html">Services</a></li><li><a href="{prefix}areas-we-serve.html">Areas We Serve</a></li><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li></ul><div class="nav-cta"><a href="tel:{PHONE_RAW}" class="phone-link">{PHONE}</a><a href="{prefix}quote.html" class="btn btn-primary">Free Estimate</a></div></div></nav>"""
+    logo_path = f"{prefix}images/logo.png"
+    return f"""
+<nav><div class="container nav-container"><a href="{prefix}index.html" class="nav-logo-link"><img src="{logo_path}" alt="Dre Home Services" class="nav-logo-img"></a><button class="mobile-menu-btn" aria-label="Toggle menu">&#9776;</button><ul class="nav-links"><li><a href="{prefix}services.html">Services</a></li><li><a href="{prefix}areas-we-serve.html">Areas We Serve</a></li><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li></ul><div class="nav-cta"><a href="tel:{PHONE_RAW}" class="phone-link">{PHONE}</a><button class="btn btn-primary" data-open-modal>Free Estimate</button></div></div><div class="mobile-nav"><ul><li><a href="{prefix}services.html">Services</a></li><li><a href="{prefix}areas-we-serve.html">Areas We Serve</a></li><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li><li><button class="btn btn-primary" data-open-modal style="width:100%;margin-top:16px;">Free Estimate</button></li></ul></div></nav>
+"""
+
+def modal_overlay(prefix=""):
+    return f"""
+<div class="modal-overlay" id="quote-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div>
+        <span class="section-label" style="margin-bottom:8px;">Get Started</span>
+        <h2>Request a Free Estimate</h2>
+      </div>
+      <button class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form class="modal-form" id="quote-form">
+        <div class="form-row">
+          <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" name="name" required placeholder="John Smith"></div>
+          <div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone" required placeholder="(804) 555-1234"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="john@email.com"></div>
+          <div class="form-group"><label for="service">Service Needed *</label><select id="service" name="service" required><option value="">Select a service...</option><option value="roof-installation">Roof Installation</option><option value="roof-repair">Roof Repair</option><option value="roof-inspection">Roof Inspection</option><option value="preventive-maintenance">Preventive Maintenance</option><option value="waterproofing">Waterproofing / Coating</option><option value="gutter-cleaning">Gutter Cleaning</option><option value="gutter-installation">Gutter Installation</option><option value="powerwashing">Power Washing</option><option value="electrical">Electrical</option><option value="plumbing">Plumbing</option><option value="deck">Deck Construction / Repair</option><option value="siding">Siding</option><option value="other">Other / Multiple Services</option></select></div>
+        </div>
+        <div class="form-group"><label for="city">Your City *</label><select id="city" name="city" required><option value="">Select your city...</option><option value="Fredericksburg">Fredericksburg</option><option value="King George">King George</option><option value="Caroline">Caroline</option><option value="Stafford">Stafford</option><option value="Culpeper">Culpeper</option><option value="Woodbridge">Woodbridge</option><option value="Other">Other</option></select></div>
+        <div class="form-group"><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Tell us about your project, timeline, and any specific needs..."></textarea></div>
+        <button type="submit" class="btn btn-primary btn-large">Get My Free Estimate</button>
+        <p style="text-align:center;font-size:0.8rem;color:var(--text-muted);margin-top:16px;">Or call us directly at <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
+      </form>
+      <div class="modal-success" id="modal-success">
+        <div class="modal-success-icon">&#10003;</div>
+        <h3 style="color:var(--brand-dark);margin-bottom:12px;">Quote Request Sent!</h3>
+        <p style="color:var(--text-secondary);">Andre will call you within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+"""
 
 def cta_banner(prefix=""):
-    return f"""<section class="cta-banner"><div class="container reveal"><h2>Ready to Get Started?</h2><p>Call Dre Home Services today for a free, no-obligation estimate. We serve Fredericksburg, Stafford, Woodbridge, and all surrounding areas.</p><div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;"><a href="{prefix}quote.html" class="btn btn-primary btn-large">Get Free Estimate</a><a href="tel:{PHONE_RAW}" class="btn btn-amber btn-large">Call {PHONE}</a></div></div></section>"""
+    return f"""
+<section class="cta-banner"><div class="container reveal"><h2>Ready to Get Started?</h2><p>Call Dre Home Services today for a free, no-obligation estimate. We serve Fredericksburg, Stafford, Woodbridge, and all surrounding areas.</p><div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;"><button class="btn btn-primary btn-large" data-open-modal>Get Free Estimate</button><a href="tel:{PHONE_RAW}" class="btn btn-dark btn-large">Call {PHONE}</a></div></div></section>
+"""
 
 def footer(prefix=""):
-    return f"""<footer><div class="container"><div class="footer-grid"><div><div class="footer-brand"><div class="logo-icon">D</div>Dre Home Services</div><p class="footer-desc">Professional roofing, plumbing, electrical, gutter, power washing, deck & siding services across Central Virginia. Free estimates. Licensed & insured.</p></div><div class="footer-col"><h4>Services</h4><ul><li><a href="{prefix}services.html#roofing">Roofing</a></li><li><a href="{prefix}services.html#inspection">Inspection</a></li><li><a href="{prefix}services.html#waterproofing">Waterproofing</a></li><li><a href="{prefix}services.html#gutters">Gutters</a></li><li><a href="{prefix}services.html#electrical-plumbing">Electrical & Plumbing</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}areas-we-serve.html">Areas</a></li><li><a href="{prefix}testimonials.html">Testimonials</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:{PHONE_RAW}">{PHONE}</a></li><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li><a href="{prefix}quote.html">Free Estimate</a></li></ul></div></div><div class="footer-bottom"><span>&copy; 2026 Dre Home Services LLC</span><span><a href="{prefix}privacy.html" style="color:rgba(255,255,255,0.4);">Privacy</a> &middot; <a href="{prefix}terms.html" style="color:rgba(255,255,255,0.4);">Terms</a></span></div></div></footer><script src="{prefix}js/main.js"></script></body></html>"""
+    logo_path = f"{prefix}images/logo.png"
+    return f"""
+<footer><div class="container"><div class="footer-grid"><div><div class="footer-brand"><img src="{logo_path}" alt="Dre Home Services" class="footer-logo">Dre Home Services</div><p class="footer-desc">Professional roofing, plumbing, electrical, gutter, power washing, deck & siding services across Central Virginia. Free estimates. Licensed & insured.</p></div><div class="footer-col"><h4>Services</h4><ul><li><a href="{prefix}services.html#roofing">Roofing</a></li><li><a href="{prefix}services.html#inspection">Inspection</a></li><li><a href="{prefix}services.html#waterproofing">Waterproofing</a></li><li><a href="{prefix}services.html#gutters">Gutters</a></li><li><a href="{prefix}services.html#electrical-plumbing">Electrical & Plumbing</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}areas-we-serve.html">Areas</a></li><li><a href="{prefix}testimonials.html">Testimonials</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:{PHONE_RAW}">{PHONE}</a></li><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li><button data-open-modal style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:0.9rem;cursor:pointer;padding:0;">Free Estimate</button></li></ul></div></div><div class="footer-bottom"><span>&copy; 2026 Dre Home Services LLC</span><span><a href="{prefix}privacy.html" style="color:rgba(255,255,255,0.4);">Privacy</a> &middot; <a href="{prefix}terms.html" style="color:rgba(255,255,255,0.4);">Terms</a></span></div></div></footer>
+<script src="{prefix}js/main.js"></script>
+</body></html>
+"""
 
 def page_header(label, h1, p):
-    return f"""<header class="page-header"><div class="container reveal"><span class="section-label">{label}</span><h1>{h1}</h1><p>{p}</p></div></header>"""
+    return f"""
+<header class="page-header"><div class="container reveal"><span class="section-label">{label}</span><h1>{h1}</h1><p>{p}</p></div></header>
+"""
 
 # --- City pages ---
 def write_city_page(slug, city, county, d1, d2, d3):
     path = f"{BASE}/areas/{slug}.html"
     services_cards = ""
     for svc_slug, svc_name, svc_anchor in services_list:
-        services_cards += f"""<div class="service-card"><div class="service-icon">&#127968;</div><h3>{svc_name} in {city}</h3><p>Professional {svc_name.lower()} services for {city} homeowners and businesses. Free estimates, quality workmanship.</p><a href="../services.html#{svc_anchor}" class="service-link">Learn More &rarr;</a></div>\n"""
+        services_cards += f"""
+<div class="service-card"><div class="service-icon">&#127968;</div><h3>{svc_name} in {city}</h3><p>Professional {svc_name.lower()} services for {city} homeowners and businesses. Free estimates, quality workmanship.</p><a href="../services.html#{svc_anchor}" class="service-link">Learn More &rarr;</a></div>
+"""
 
     html = head(
         f"{COMPANY} | Home Services in {city}, {county} | Free Estimates",
@@ -80,7 +129,7 @@ def write_city_page(slug, city, county, d1, d2, d3):
     ) + f"""
 <section class="content-section"><div class="container">
 <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-  <div><span class="section-label">Local Service</span><h2 style="text-align:left;" class="section-title">Trusted Home Services in {city}</h2><p style="color:var(--text-secondary);line-height:1.7;margin-bottom:20px;">{COMPANY} proudly serves {city}, {d1}. We understand the unique needs of {d2} in this area and provide fast, reliable service with upfront pricing.</p><p style="color:var(--text-secondary);line-height:1.7;margin-bottom:20px;">Whether you are maintaining {d3} or tackling a major renovation, our local crew arrives on time, handles all the heavy lifting, and leaves your property in better shape than we found it. Every job is backed by our satisfaction guarantee.</p><div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;"><a href="../quote.html" class="btn btn-primary">Get a Free Quote</a><a href="tel:{PHONE_RAW}" class="btn btn-amber">Call {PHONE}</a></div></div>
+  <div><span class="section-label">Local Service</span><h2 style="text-align:left;" class="section-title">Trusted Home Services in {city}</h2><p style="color:var(--text-secondary);line-height:1.7;margin-bottom:20px;">{COMPANY} proudly serves {city}, {d1}. We understand the unique needs of {d2} in this area and provide fast, reliable service with upfront pricing.</p><p style="color:var(--text-secondary);line-height:1.7;margin-bottom:20px;">Whether you are maintaining {d3} or tackling a major renovation, our local crew arrives on time, handles all the heavy lifting, and leaves your property in better shape than we found it. Every job is backed by our satisfaction guarantee.</p><div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;"><button class="btn btn-primary" data-open-modal>Get a Free Quote</button><a href="tel:{PHONE_RAW}" class="btn btn-dark">Call {PHONE}</a></div></div>
   <div class="service-card" style="padding:28px;"><h3 style="margin-bottom:16px;">Why {city} Chooses Us</h3><div style="display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Same-day appointments available</span></div><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Upfront, no-surprise pricing</span></div><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Licensed & insured professionals</span></div><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Free estimates on every project</span></div><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Satisfaction guaranteed</span></div></div></div>
 </div>
 </div></section>
@@ -95,14 +144,15 @@ def write_city_page(slug, city, county, d1, d2, d3):
 <div class="section-header reveal"><span class="section-label">Nearby Areas</span><h2 class="section-title">We Also Serve Nearby {county} Communities</h2></div>
 <div class="areas-grid reveal">
 """
-    # Add links to other cities (excluding self)
     for other_slug, other_city, other_county, _, _, _ in cities:
         if other_slug != slug:
             html += f'<a href="{other_slug}.html" class="area-card"><h3>{other_city}</h3><p>{other_county}</p></a>\n'
 
-    html += f"""</div></div></section>
+    html += f"""
+</div></div></section>
 
 {cta_banner(prefix="../")}
+{modal_overlay(prefix="../")}
 {footer(prefix="../")}
 """
     with open(path, "w") as f:
@@ -119,15 +169,16 @@ def write_about():
 <section class="content-section"><div class="container">
 <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
   <div><h2>Built on Trust, Backed by Skill</h2><p>Dre Home Services LLC was founded by Andre with a simple mission: provide reliable, high-quality home services that homeowners can trust. What started as a one-man roofing operation has grown into a full-service home improvement company serving Fredericksburg, Stafford, Woodbridge, and surrounding Central Virginia communities.</p><p>Every project — whether it's a minor plumbing fix or a full roof replacement — gets the same attention to detail. We show up on time, communicate clearly, and never leave a mess behind.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
-    <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-blue);">10+</div><div style="font-size:0.9rem;color:var(--text-secondary);">Years Experience</div></div>
-    <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-blue);">500+</div><div style="font-size:0.9rem;color:var(--text-secondary);">Projects Completed</div></div>
-    <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-blue);">7</div><div style="font-size:0.9rem;color:var(--text-secondary);">Cities Served</div></div>
-    <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-blue);">100%</div><div style="font-size:0.9rem;color:var(--text-secondary);">Satisfaction Focused</div></div>
+    <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-orange);">10+</div><div style="font-size:0.9rem;color:var(--text-secondary);">Years Experience</div></div>
+    <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-orange);">500+</div><div style="font-size:0.9rem;color:var(--text-secondary);">Projects Completed</div></div>
+    <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-orange);">7</div><div style="font-size:0.9rem;color:var(--text-secondary);">Cities Served</div></div>
+    <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-orange);">100%</div><div style="font-size:0.9rem;color:var(--text-secondary);">Satisfaction Focused</div></div>
   </div></div>
-  <div class="service-card" style="padding:40px;"><h3 style="margin-bottom:20px;">Our Core Values</h3><ul style="list-style:none;display:flex;flex-direction:column;gap:16px;color:var(--text-secondary);"><li><strong style="color:var(--brand-navy);">Honesty First</strong> — No upselling, no hidden fees. We quote what you need, not what pads our invoice.</li><li><strong style="color:var(--brand-navy);">Quality Craftsmanship</strong> — Every nail, pipe, and wire is installed to code and built to last.</li><li><strong style="color:var(--brand-navy);">Respect for Your Home</strong> — We treat your property like our own. Clean work sites, protective coverings, and thorough cleanup.</li><li><strong style="color:var(--brand-navy);">Reliable Communication</strong> — You'll always know when we're coming, what we're doing, and when we'll be done.</li></ul></div>
+  <div class="service-card" style="padding:40px;"><h3 style="margin-bottom:20px;">Our Core Values</h3><ul style="list-style:none;display:flex;flex-direction:column;gap:16px;color:var(--text-secondary);"><li><strong style="color:var(--brand-dark);">Honesty First</strong> — No upselling, no hidden fees. We quote what you need, not what pads our invoice.</li><li><strong style="color:var(--brand-dark);">Quality Craftsmanship</strong> — Every nail, pipe, and wire is installed to code and built to last.</li><li><strong style="color:var(--brand-dark);">Respect for Your Home</strong> — We treat your property like our own. Clean work sites, protective coverings, and thorough cleanup.</li><li><strong style="color:var(--brand-dark);">Reliable Communication</strong> — You'll always know when we're coming, what we're doing, and when we'll be done.</li></ul></div>
 </div>
 </div></section>
 {cta_banner()}
+{modal_overlay()}
 {footer()}
 """
     with open(f"{BASE}/about.html", "w") as f:
@@ -149,14 +200,17 @@ def write_contact():
     <div class="service-card"><div style="display:flex;align-items:center;gap:16px;"><div class="hero-card-icon">&#128205;</div><div><div style="font-weight:600;">Service Area</div><span style="color:var(--text-secondary);">Fredericksburg, King George, Caroline, Stafford, Culpeper, Woodbridge</span></div></div></div>
     <div class="service-card"><div style="display:flex;align-items:center;gap:16px;"><div class="hero-card-icon">&#128337;</div><div><div style="font-weight:600;">Hours</div><span style="color:var(--text-secondary);">Mon–Fri: 7AM–6PM | Sat: 8AM–4PM</span></div></div></div>
   </div></div>
-  <div class="quote-form"><h3 style="margin-bottom:24px;color:var(--brand-navy);">Send a Message</h3>
-  <form id="quote-form"><div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
-  <div class="form-row"><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email"></div><div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" required></div></div>
-  <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="How can we help you?"></textarea></div>
-  <button type="submit" class="btn btn-primary btn-large form-submit">Send Message</button></form></div>
+  <div class="quote-form"><h3 style="margin-bottom:24px;color:var(--brand-dark);">Send a Message</h3>
+  <form id="quote-form">
+    <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
+    <div class="form-row"><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email"></div><div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" required></div></div>
+    <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="How can we help you?"></textarea></div>
+    <button type="submit" class="btn btn-primary btn-large form-submit">Send Message</button>
+  </form></div>
 </div>
 </div></section>
 {cta_banner()}
+{modal_overlay()}
 {footer()}
 """
     with open(f"{BASE}/contact.html", "w") as f:
@@ -182,6 +236,7 @@ def write_faq():
 </div>
 </div></section>
 {cta_banner()}
+{modal_overlay()}
 {footer()}
 """
     with open(f"{BASE}/faq.html", "w") as f:
@@ -205,6 +260,7 @@ def write_testimonials():
 </div>
 </div></section>
 {cta_banner()}
+{modal_overlay()}
 {footer()}
 """
     with open(f"{BASE}/testimonials.html", "w") as f:
@@ -232,6 +288,7 @@ def write_areas_we_serve():
 </div>
 </div></section>
 {cta_banner()}
+{modal_overlay()}
 {footer()}
 """
     with open(f"{BASE}/areas-we-serve.html", "w") as f:
@@ -239,24 +296,20 @@ def write_areas_we_serve():
     print("  areas-we-serve.html written")
 
 def write_quote():
+    # quote.html now just opens the modal on load and shows a brief page
     html = head(
         f"Free Estimate | {COMPANY}",
         f"Request a free estimate from Dre Home Services. Roofing, plumbing, electrical, gutters, power washing, deck & siding. Call {PHONE}.",
         f"{DOMAIN}/quote.html"
-    ) + nav() + page_header("Get Started", "Request a Free Estimate", "Tell us about your project and we'll get back to you within 24 hours.") + f"""
-<section class="quote-section" style="padding-top:60px;"><div class="container">
-<div class="reveal">
-<form class="quote-form" id="quote-form">
-  <div class="form-row"><div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" name="name" required placeholder="John Smith"></div><div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone" required placeholder="(804) 555-1234"></div></div>
-  <div class="form-row"><div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="john@email.com"></div><div class="form-group"><label for="service">Service Needed *</label><select id="service" name="service" required><option value="">Select a service...</option><option value="roof-installation">Roof Installation</option><option value="roof-repair">Roof Repair</option><option value="roof-inspection">Roof Inspection</option><option value="preventive-maintenance">Preventive Maintenance</option><option value="waterproofing">Waterproofing / Coating</option><option value="gutter-cleaning">Gutter Cleaning</option><option value="gutter-installation">Gutter Installation</option><option value="powerwashing">Power Washing</option><option value="electrical">Electrical</option><option value="plumbing">Plumbing</option><option value="deck">Deck Construction / Repair</option><option value="siding">Siding</option><option value="other">Other / Multiple Services</option></select></div></div>
-  <div class="form-group"><label for="city">Your City *</label><select id="city" name="city" required><option value="">Select your city...</option><option value="Fredericksburg">Fredericksburg</option><option value="King George">King George</option><option value="Caroline">Caroline</option><option value="Stafford">Stafford</option><option value="Culpeper">Culpeper</option><option value="Woodbridge">Woodbridge</option><option value="Other">Other</option></select></div>
-  <div class="form-group"><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Tell us about your project, timeline, and any specific needs..."></textarea></div>
-  <button type="submit" class="btn btn-primary btn-large form-submit">Get My Free Estimate</button>
-  <p style="text-align:center;font-size:0.8rem;color:var(--text-muted);margin-top:16px;">Or call us directly at <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
-</form>
-</div>
+    ) + nav() + f"""
+<header class="page-header"><div class="container reveal"><span class="section-label">Get Started</span><h1>Request a Free Estimate</h1><p>Tell us about your project and we'll get back to you within 24 hours.</p></div></header>
+<section class="content-section"><div class="container text-center reveal" style="max-width:600px;">
+  <p style="font-size:1.1rem;margin-bottom:32px;">Click the button below to open our quick estimate form. It only takes 60 seconds.</p>
+  <button class="btn btn-primary btn-large" data-open-modal style="margin-bottom:16px;">Open Quote Form</button>
+  <p style="color:var(--text-muted);font-size:0.9rem;">Or call us directly at <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
 </div></section>
 {cta_banner()}
+{modal_overlay()}
 {footer()}
 """
     with open(f"{BASE}/quote.html", "w") as f:
@@ -281,6 +334,7 @@ def write_privacy():
 <h3>7. Contact Us</h3><p>If you have questions about this privacy policy, contact us at <a href="mailto:{EMAIL}">{EMAIL}</a> or <a href="tel:{PHONE_RAW}">{PHONE}</a>.</p>
 </div>
 </div></section>
+{modal_overlay()}
 {footer()}
 """
     with open(f"{BASE}/privacy.html", "w") as f:
@@ -306,6 +360,7 @@ def write_terms():
 <h3>8. Contact</h3><p>Questions about these terms? Contact us at <a href="mailto:{EMAIL}">{EMAIL}</a> or <a href="tel:{PHONE_RAW}">{PHONE}</a>.</p>
 </div>
 </div></section>
+{modal_overlay()}
 {footer()}
 """
     with open(f"{BASE}/terms.html", "w") as f:
@@ -341,6 +396,7 @@ def write_sitemap():
 </ul>
 </div>
 </div></section>
+{modal_overlay()}
 {footer()}
 """
     with open(f"{BASE}/sitemap.html", "w") as f:
@@ -386,11 +442,9 @@ Sitemap: {DOMAIN}/sitemap.xml"""
 if __name__ == "__main__":
     os.makedirs(f"{BASE}/areas", exist_ok=True)
 
-    # City pages
     for slug, city, county, d1, d2, d3 in cities:
         write_city_page(slug, city, county, d1, d2, d3)
 
-    # Support pages
     write_about()
     write_contact()
     write_faq()
