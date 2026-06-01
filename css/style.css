@@ -197,40 +197,44 @@ nav {
 /* ---- Hero ---- */
 .hero {
   padding:140px 0 100px;
-  background:linear-gradient(135deg, var(--bg-warm) 0%, var(--white) 50%, var(--bg-cream) 100%);
+  background:var(--brand-dark);
   position:relative; overflow:hidden;
 }
 .hero::before {
-  content:''; position:absolute; top:-200px; right:-150px;
-  width:700px; height:700px;
-  background:radial-gradient(circle, rgba(208,96,0,0.06), transparent 60%);
-  border-radius:50%; pointer-events:none;
+  content:''; position:absolute; inset:0;
+  background:url('https://images.unsplash.com/photo-1600585154343-be6161a76a90?w=1900&q=80') center/cover no-repeat;
+  opacity:0.25;
+  z-index:0;
 }
 .hero::after {
-  content:''; position:absolute; bottom:-100px; left:-100px;
-  width:500px; height:500px;
-  background:radial-gradient(circle, rgba(0,32,48,0.04), transparent 60%);
-  border-radius:50%; pointer-events:none;
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(0,32,48,0.85) 0%, rgba(0,32,48,0.6) 50%, rgba(0,32,48,0.85) 100%);
+  z-index:1;
+}
+.hero-content {
+  position:relative;
+  z-index:2;
 }
 .hero-grid {
   display:grid; grid-template-columns:1fr 1fr;
   gap:64px; align-items:center;
-  position:relative; z-index:1;
+  position:relative; z-index:2;
 }
 .hero-badge {
   display:inline-flex; align-items:center; gap:8px;
-  background:rgba(208,96,0,0.08);
-  border:1px solid rgba(208,96,0,0.15);
+  background:rgba(208,96,0,0.15);
+  border:1px solid rgba(208,96,0,0.3);
   padding:8px 16px; border-radius:50px;
   font-size:0.8rem; font-weight:600;
-  color:var(--brand-orange); margin-bottom:20px;
+  color:var(--brand-orange-light); margin-bottom:20px;
 }
-.hero h1 { color:var(--brand-dark); margin-bottom:20px; font-weight:800; }
-.hero p { font-size:1.15rem; color:var(--text-secondary); margin-bottom:32px; max-width:520px; }
+.hero h1 { color:var(--white); margin-bottom:20px; font-weight:800; }
+.hero h1 span { color:var(--green-light); }
+.hero p { font-size:1.15rem; color:rgba(255,255,255,0.85); margin-bottom:32px; max-width:520px; }
 .hero-buttons { display:flex; gap:14px; flex-wrap:wrap; }
 .hero-trust {
   display:flex; gap:24px; margin-top:32px;
-  font-size:0.8rem; color:var(--text-muted);
+  font-size:0.85rem; color:rgba(255,255,255,0.7);
 }
 .hero-trust span { display:flex; align-items:center; gap:6px; }
 .hero-visual {
@@ -239,7 +243,7 @@ nav {
 .hero-logo {
   max-width:380px;
   width:100%;
-  filter:drop-shadow(0 20px 40px rgba(0,32,48,0.1));
+  filter:drop-shadow(0 20px 40px rgba(0,32,48,0.3));
   animation:floatLogo 6s ease-in-out infinite;
 }
 @keyframes floatLogo {
