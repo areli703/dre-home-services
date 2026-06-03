@@ -6,5 +6,5 @@ Sitemap: https://www.drehomeservicesllc.com/sitemap.xml
 # Optimize crawl budget
 Crawl-delay: 1
 
-Disallow: /privacy.html
-Disallow: /terms.html
+Disallow: /privacy/
+Disallow: /terms/
