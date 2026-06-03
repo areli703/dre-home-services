@@ -1,3 +1,10 @@
 User-agent: *
 Allow: /
-Sitemap: https://areli703.github.io/dre-home-services/sitemap.xml
+
+Sitemap: https://www.drehomeservicesllc.com/sitemap.xml
+
+# Optimize crawl budget
+Crawl-delay: 1
+
+Disallow: /privacy.html
+Disallow: /terms.html
