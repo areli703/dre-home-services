@@ -7,7 +7,7 @@ COMPANY = "Dre Home Services LLC"
 PHONE = "(804) 848-9575"
 PHONE_RAW = "+18048489575"
 EMAIL = "info@drehomeservicesllc.com"
-DOMAIN = "https://areli703.github.io/dre-home-services"
+DOMAIN = "https://www.drehomeservicesllc.com"
 
 cities = [
     ("fredericksburg", "Fredericksburg", "Spotsylvania County", "historic downtown and Civil War heritage", "colonial-era homes and modern subdivisions", "residential neighborhoods along the Rappahannock River"),

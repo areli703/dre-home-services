@@ -141,6 +141,11 @@ a:hover { color:var(--brand-orange-dark); }
 }
 .btn-large { padding:15px 32px; font-size:1rem; }
 .btn-block { width:100%; }
+.btn-glow { animation:glowPulse 2s ease-in-out infinite; }
+@keyframes glowPulse {
+  0%,100% { box-shadow:0 4px 16px rgba(208,96,0,0.25); }
+  50% { box-shadow:0 4px 24px rgba(208,96,0,0.45), 0 0 40px rgba(208,96,0,0.1); }
+}
 
 /* ---- Sticky Mobile CTA ---- */
 .sticky-cta {
@@ -178,7 +183,7 @@ nav {
   height:68px;
 }
 .nav-logo-link { display:flex; align-items:center; text-decoration:none; }
-.nav-logo-img { height:42px; width:auto; }
+.nav-logo-img { height:56px; width:auto; }
 .nav-links {
   display:flex;
   list-style:none;
@@ -222,7 +227,7 @@ nav {
   .nav-links, .nav-cta { display:none; }
   .mobile-menu-btn { display:block; }
   .nav-container { height:60px; }
-  .nav-logo-img { height:36px; }
+  .nav-logo-img { height:48px; }
 }
 
 /* ---- Mobile Nav ---- */
@@ -390,7 +395,8 @@ nav {
   letter-spacing:0.05em;
 }
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
   width:100%;
   padding:12px 14px;
   border:1.5px solid var(--border-light);
@@ -425,6 +431,8 @@ nav {
 
 @media (max-width: 900px) {
   .hero { min-height:auto; padding:80px 0 48px; }
+  .hero-mobile-cta { display:block !important; }
+  .hero-right { display:none; }
   .hero-grid { grid-template-columns:1fr; gap:32px; }
   .hero-form-card { order:-1; padding:24px; }
   .hero-review-mini { max-width:100%; }
@@ -795,7 +803,7 @@ footer {
   color:var(--white);
   margin-bottom:14px;
 }
-.footer-logo { height:36px; width:auto; }
+.footer-logo { height:50px; width:auto; }
 .footer-desc {
   font-size:0.85rem;
   color:rgba(255,255,255,0.45);
