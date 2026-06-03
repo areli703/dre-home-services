@@ -122,11 +122,11 @@
       payload.source = window.location.pathname;
       payload.timestamp = new Date().toISOString();
 
-      const WEBHOOK_URL = 'https://your-nida-webhook-url-here';
+      const WEBHOOK_URL = 'https://www.nida-os.com/api/inbound-webhook?workspace_id=4a9a195e-fc77-4b3a-9304-fc940d575e13';
       try {
         await fetch(WEBHOOK_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'X-Nida-Secret': 'inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26' },
           body: JSON.stringify(payload)
         });
       } catch (err) {
@@ -135,6 +135,43 @@
 
       modalForm.style.display = 'none';
       if (modalSuccess) modalSuccess.style.display = 'block';
+    });
+  }
+
+  /* ---- Contact Page Form ---- */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const origText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const data = new FormData(contactForm);
+      const payload = Object.fromEntries(data.entries());
+      payload.source = window.location.pathname;
+      payload.timestamp = new Date().toISOString();
+
+      const WEBHOOK_URL = 'https://www.nida-os.com/api/inbound-webhook?workspace_id=4a9a195e-fc77-4b3a-9304-fc940d575e13';
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Nida-Secret': 'inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.log('Webhook not configured — payload:', payload);
+      }
+
+      btn.textContent = '✓ Message Sent!';
+      btn.style.background = 'var(--green)';
+      setTimeout(() => {
+        contactForm.reset();
+        btn.textContent = origText;
+        btn.disabled = false;
+        btn.style.background = '';
+      }, 3000);
     });
   }
 
