@@ -61,12 +61,12 @@
       payload.timestamp = new Date().toISOString();
 
       // Replace with your actual Nida webhook URL
-      const WEBHOOK_URL = 'https://your-nida-webhook-url-here';
+      const WEBHOOK_URL = 'https://www.nida-os.com/api/inbound-webhook?workspace_id=4a9a195e-fc77-4b3a-9304-fc940d575e13';
 
       try {
         await fetch(WEBHOOK_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'X-Nida-Secret': 'inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26' },
           body: JSON.stringify(payload)
         });
       } catch (err) {
