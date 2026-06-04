@@ -110,7 +110,10 @@
   }
 
   document.querySelectorAll('[data-open-modal]').forEach(btn => {
-    btn.addEventListener('click', openModal);
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
   });
   document.querySelectorAll('.modal-close, .modal-overlay').forEach(el => {
     el.addEventListener('click', (e) => {
