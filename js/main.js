@@ -60,21 +60,28 @@
       payload.source = window.location.pathname;
       payload.timestamp = new Date().toISOString();
 
-      // Replace with your actual Nida webhook URL
       const WEBHOOK_URL = 'https://www.nida-os.com/api/inbound-webhook?workspace_id=4a9a195e-fc77-4b3a-9304-fc940d575e13';
+      let ok = false;
 
       try {
-        await fetch(WEBHOOK_URL, {
+        const resp = await fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-Nida-Secret': 'inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26' },
           body: JSON.stringify(payload)
         });
+        ok = resp.ok;
+        if (!ok) console.error('Webhook returned HTTP', resp.status, await resp.text());
       } catch (err) {
-        console.log('Webhook not configured — payload:', payload);
+        console.error('Webhook fetch failed:', err);
       }
 
-      btn.textContent = '✓ Quote Requested!';
-      btn.style.background = 'var(--green)';
+      if (ok) {
+        btn.textContent = '\u2713 Quote Requested!';
+        btn.style.background = 'var(--green)';
+      } else {
+        btn.textContent = 'Error — try calling';
+        btn.style.background = '#b00020';
+      }
       setTimeout(() => {
         heroForm.reset();
         btn.textContent = origText;
@@ -123,18 +130,26 @@
       payload.timestamp = new Date().toISOString();
 
       const WEBHOOK_URL = 'https://www.nida-os.com/api/inbound-webhook?workspace_id=4a9a195e-fc77-4b3a-9304-fc940d575e13';
+      let ok = false;
+
       try {
-        await fetch(WEBHOOK_URL, {
+        const resp = await fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-Nida-Secret': 'inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26' },
           body: JSON.stringify(payload)
         });
+        ok = resp.ok;
+        if (!ok) console.error('Webhook returned HTTP', resp.status, await resp.text());
       } catch (err) {
-        console.log('Webhook not configured — payload:', payload);
+        console.error('Webhook fetch failed:', err);
       }
 
-      modalForm.style.display = 'none';
-      if (modalSuccess) modalSuccess.style.display = 'block';
+      if (ok) {
+        modalForm.style.display = 'none';
+        if (modalSuccess) modalSuccess.style.display = 'block';
+      } else {
+        alert('Something went wrong sending your quote. Please call (804) 848-9575.');
+      }
     });
   }
 
@@ -154,18 +169,27 @@
       payload.timestamp = new Date().toISOString();
 
       const WEBHOOK_URL = 'https://www.nida-os.com/api/inbound-webhook?workspace_id=4a9a195e-fc77-4b3a-9304-fc940d575e13';
+      let ok = false;
+
       try {
-        await fetch(WEBHOOK_URL, {
+        const resp = await fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-Nida-Secret': 'inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26' },
           body: JSON.stringify(payload)
         });
+        ok = resp.ok;
+        if (!ok) console.error('Webhook returned HTTP', resp.status, await resp.text());
       } catch (err) {
-        console.log('Webhook not configured — payload:', payload);
+        console.error('Webhook fetch failed:', err);
       }
 
-      btn.textContent = '✓ Message Sent!';
-      btn.style.background = 'var(--green)';
+      if (ok) {
+        btn.textContent = '\u2713 Message Sent!';
+        btn.style.background = 'var(--green)';
+      } else {
+        btn.textContent = 'Error — try calling';
+        btn.style.background = '#b00020';
+      }
       setTimeout(() => {
         contactForm.reset();
         btn.textContent = origText;
