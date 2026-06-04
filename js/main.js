@@ -66,7 +66,7 @@
       try {
         const resp = await fetch(WEBHOOK_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26' },
           body: JSON.stringify(payload)
         });
         ok = resp.ok;
@@ -135,7 +135,7 @@
       try {
         const resp = await fetch(WEBHOOK_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26' },
           body: JSON.stringify(payload)
         });
         ok = resp.ok;
@@ -174,7 +174,7 @@
       try {
         const resp = await fetch(WEBHOOK_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26' },
           body: JSON.stringify(payload)
         });
         ok = resp.ok;
