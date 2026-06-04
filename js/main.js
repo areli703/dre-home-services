@@ -127,6 +127,11 @@
   if (modalForm) {
     modalForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const btn = modalForm.querySelector('button[type="submit"]');
+      const origText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
       const data = new FormData(modalForm);
       const payload = Object.fromEntries(data.entries());
       payload.source = window.location.pathname;
@@ -152,6 +157,8 @@
         if (modalSuccess) modalSuccess.style.display = 'block';
       } else {
         alert('Something went wrong sending your quote. Please call (804) 848-9575.');
+        btn.textContent = origText;
+        btn.disabled = false;
       }
     });
   }
@@ -215,7 +222,9 @@
   /* ---- Smooth Scroll ---- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
+      const href = this.getAttribute('href');
+      if (href === '#') return; // Skip modal triggers / empty anchors
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
