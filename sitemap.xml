@@ -9,6 +9,9 @@
   <url><loc>https://www.drehomeservicesllc.com/faq/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.drehomeservicesllc.com/testimonials/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.drehomeservicesllc.com/blog/</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/privacy/</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/terms/</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/sitemap/</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.drehomeservicesllc.com/blog/roof-cost-fredericksburg-2026/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.drehomeservicesllc.com/blog/roof-repair-signs-winter/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.drehomeservicesllc.com/blog/plumbing-emergency-before-plumber/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
@@ -19,10 +22,73 @@
   <url><loc>https://www.drehomeservicesllc.com/blog/choose-licensed-contractor-virginia/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.drehomeservicesllc.com/blog/preventive-maintenance-checklist/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.drehomeservicesllc.com/blog/storm-damage-insurance-guide/</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/services/roof-installation/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/services/roof-inspection/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/services/preventive-maintenance/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/services/waterproofing/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/services/gutter-cleaning/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/services/powerwashing/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/services/electrical/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/services/plumbing/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/services/deck/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/roof-installation/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/roof-inspection/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/preventive-maintenance/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/waterproofing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/gutter-cleaning/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/powerwashing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/electrical/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/plumbing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/fredericksburg/deck/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/roof-installation/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/roof-inspection/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/preventive-maintenance/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/waterproofing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/gutter-cleaning/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/powerwashing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/electrical/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/plumbing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/king-george/deck/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/roof-installation/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/roof-inspection/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/preventive-maintenance/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/waterproofing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/gutter-cleaning/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/powerwashing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/electrical/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/plumbing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/caroline/deck/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/roof-installation/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/roof-inspection/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/preventive-maintenance/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/waterproofing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/gutter-cleaning/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/powerwashing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/electrical/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/plumbing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/stafford/deck/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/roof-installation/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/roof-inspection/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/preventive-maintenance/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/waterproofing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/gutter-cleaning/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/powerwashing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/electrical/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/plumbing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/culpeper/deck/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/roof-installation/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/roof-inspection/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/preventive-maintenance/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/waterproofing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/gutter-cleaning/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/powerwashing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/electrical/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/plumbing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/deck/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
 </urlset>
