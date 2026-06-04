@@ -268,4 +268,39 @@
     document.body.appendChild(launcher);
   })();
 
+
+
+  /* ═══════════════════════════════════════════════════════════════
+     Before / After Slider
+     ═══════════════════════════════════════════════════════════════ */
+  (function() {
+    const wrapper = document.getElementById('ba-slider');
+    const handle  = document.getElementById('ba-handle');
+    const afterImg = wrapper ? wrapper.querySelector('.after-image') : null;
+    if (!wrapper || !handle || !afterImg) return;
+
+    let isDragging = false;
+
+    function setPosition(clientX) {
+      const rect = wrapper.getBoundingClientRect();
+      let x = clientX - rect.left;
+      x = Math.max(0, Math.min(x, rect.width));
+      const pct = (x / rect.width) * 100;
+      handle.style.left = pct + '%';
+      afterImg.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    }
+
+    handle.addEventListener('mousedown', () => isDragging = true);
+    document.addEventListener('mouseup', () => isDragging = false);
+    document.addEventListener('mousemove', (e) => { if (isDragging) setPosition(e.clientX); });
+
+    handle.addEventListener('touchstart', () => isDragging = true, {passive:true});
+    document.addEventListener('touchend', () => isDragging = false);
+    document.addEventListener('touchmove', (e) => {
+      if (isDragging && e.touches[0]) setPosition(e.touches[0].clientX);
+    }, {passive:true});
+
+    wrapper.addEventListener('click', (e) => { if (e.target !== handle) setPosition(e.clientX); });
+  })();
+
 })();
