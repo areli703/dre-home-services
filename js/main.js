@@ -199,150 +199,37 @@
 
 
   /* ═══════════════════════════════════════════════════════════════
-     Chatbot Widget — Dre Home Services
+     Nida Chatbot Widget — Dre Home Services
      ═══════════════════════════════════════════════════════════════ */
   (function() {
-    const WEBHOOK_URL = 'https://www.nida-os.com/api/inbound-webhook?workspace_id=4a9a195e-fc77-4b3a-9304-fc940d575e13';
-    const NIDA_SECRET = 'inb_64e8411f2c432dbdbe1d2f334f7744b0bb9fcd26';
+    const CHATBOT_ID = '9f7872ba-5d3f-40e7-a511-0a3d572e1330';
+    const EMBED_URL = 'https://www.nida-os.com/embed/chatbot/' + CHATBOT_ID;
 
-    // Create widget HTML
-    const widgetHTML = `
-    <div class="chat-widget" id="chat-widget" aria-label="Open chat">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    </div>
-    <div class="chat-panel" id="chat-panel">
-      <div class="chat-header">
-        <div class="chat-header-info">
-          <div class="chat-avatar">D</div>
-          <div>
-            <div class="chat-title">Dre Home Services</div>
-            <div class="chat-status">
-              <span class="chat-status-dot"></span>Online — replies instantly
-            </div>
-          </div>
-        </div>
-        <button class="chat-close" id="chat-close" aria-label="Close chat">&times;</button>
-      </div>
-      <div class="chat-messages" id="chat-messages">
-        <div class="chat-message bot">
-          <div class="chat-bubble">Hi! I'm Dre's virtual assistant. How can I help you with your roofing, plumbing, or electrical project today?</div>
-          <div class="chat-time">Just now</div>
-        </div>
-      </div>
-      <div class="chat-input-area">
-        <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off">
-        <button id="chat-send" aria-label="Send message">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-        </button>
-      </div>
-      <div class="chat-footer">Powered by Dre Home Services</div>
-    </div>`;
+    const launcher = document.createElement('div');
+    launcher.id = 'nida-chatbot-launcher';
+    launcher.setAttribute('aria-label', 'Open chat');
+    launcher.innerHTML = '\
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>\
+      </svg>';
+    launcher.style.cssText = 'position:fixed;bottom:24px;right:24px;width:64px;height:64px;background:#D06000;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(208,96,0,0.4);z-index:9999;transition:transform 0.2s;';
 
-    const div = document.createElement('div');
-    div.innerHTML = widgetHTML;
-    document.body.appendChild(div);
-
-    const widget = document.getElementById('chat-widget');
-    const panel = document.getElementById('chat-panel');
-    const closeBtn = document.getElementById('chat-close');
-    const input = document.getElementById('chat-input');
-    const sendBtn = document.getElementById('chat-send');
-    const messages = document.getElementById('chat-messages');
+    const panel = document.createElement('iframe');
+    panel.id = 'nida-chatbot-panel';
+    panel.src = EMBED_URL;
+    panel.title = 'Dre Home Services Chat';
+    panel.setAttribute('allow', 'clipboard-write');
+    panel.style.cssText = 'position:fixed;bottom:100px;right:24px;width:408px;height:640px;max-height:calc(100vh - 120px);border:none;border-radius:28px;box-shadow:0 8px 32px rgba(0,0,0,0.3);z-index:9998;display:none;background:white;';
 
     let isOpen = false;
-    let capturedInfo = { name: '', email: '', phone: '' };
-    let step = 'chatting'; // chatting -> ask_name -> ask_email -> ask_phone -> done
-
-    function toggle() {
+    launcher.addEventListener('click', function() {
       isOpen = !isOpen;
-      panel.classList.toggle('open', isOpen);
-      widget.classList.toggle('open', isOpen);
-      if (isOpen) input.focus();
-    }
+      panel.style.display = isOpen ? 'block' : 'none';
+      launcher.style.transform = isOpen ? 'scale(0.9)' : 'scale(1)';
+    });
 
-    widget.addEventListener('click', toggle);
-    closeBtn.addEventListener('click', toggle);
-
-    function addMessage(text, isBot) {
-      const msg = document.createElement('div');
-      msg.className = 'chat-message ' + (isBot ? 'bot' : 'user');
-      msg.innerHTML = `<div class="chat-bubble">${text}</div><div class="chat-time">Just now</div>`;
-      messages.appendChild(msg);
-      messages.scrollTop = messages.scrollHeight;
-    }
-
-    function botReply(userText) {
-      const lower = userText.toLowerCase();
-      let reply = '';
-
-      if (step === 'ask_name') {
-        capturedInfo.name = userText;
-        step = 'ask_email';
-        reply = "Thanks, " + userText + "! What's your email address so we can send you a confirmation?";
-      } else if (step === 'ask_email') {
-        capturedInfo.email = userText;
-        step = 'ask_phone';
-        reply = "Perfect. And your phone number so Andre can call you back within 15 minutes?";
-      } else if (step === 'ask_phone') {
-        capturedInfo.phone = userText;
-        step = 'done';
-        reply = "Great! We've got your info. Andre will call you at " + userText + " within 15 minutes. In the meantime, is there anything specific about your project you'd like us to know?";
-        sendToWebhook({...capturedInfo, message: '', source: 'chatbot', timestamp: new Date().toISOString()});
-      } else {
-        // Normal chat flow
-        if (lower.includes('price') || lower.includes('cost') || lower.includes('quote') || lower.includes('estimate')) {
-          reply = "We offer free, no-obligation estimates! Andre will visit your property and give you an upfront quote. What's your name so we can get started?";
-          step = 'ask_name';
-        } else if (lower.includes('roof')) {
-          reply = "We do roof installation, repairs, inspections, and full replacements. What type of roofing project do you have?";
-        } else if (lower.includes('plumb')) {
-          reply = "Our plumbers handle leaks, fixtures, drain clearing, and pipe work. Is this an emergency or scheduled repair?";
-        } else if (lower.includes('electrical') || lower.includes('electric')) {
-          reply = "We do outlets, panels, lighting, ceiling fans, and wiring. What's the electrical issue?";
-        } else if (lower.includes('gutter')) {
-          reply = "We clean, repair, and install seamless gutters with leaf guards. What's your gutter situation?";
-        } else if (lower.includes('power wash') || lower.includes('pressure wash')) {
-          reply = "We power wash decks, driveways, siding, and roofs. What surface needs cleaning?";
-        } else if (lower.includes('deck') || lower.includes('siding')) {
-          reply = "We build, repair, and refinish decks. We also install vinyl, wood, and fiber cement siding. What are you looking to do?";
-        } else if (lower.includes('hour') || lower.includes('time') || lower.includes('open')) {
-          reply = "We're open Monday–Friday 7AM–6PM and Saturday 8AM–4PM. Same-day service is often available!";
-        } else if (lower.includes('area') || lower.includes('city') || lower.includes('serve')) {
-          reply = "We serve Fredericksburg, Stafford, Woodbridge, King George, Caroline, and Culpeper. Which city are you in?";
-        } else if (lower.includes('licensed') || lower.includes('insur')) {
-          reply = "Yes! Dre Home Services is fully licensed and insured. We carry general liability and workers' comp for your protection.";
-        } else if (lower.includes('andre')) {
-          reply = "Andre is the owner and leads every project personally. 10+ years experience, 500+ happy homeowners.";
-        } else if (lower.includes('call') || lower.includes('phone')) {
-          reply = "You can call Andre directly at (804) 848-9575. Or leave your info and he'll call you back within 15 minutes!";
-        } else if (lower.includes('help') || lower.includes('hi') || lower.includes('hello')) {
-          reply = "Hi there! I can help with questions about roofing, plumbing, electrical, gutters, power washing, deck and siding. Or I can connect you with Andre for a free estimate. What do you need help with?";
-        } else {
-          reply = "I'm not sure about that, but Andre would know. Want me to connect you? Just tell me your name and what project you're working on, and he'll call you within 15 minutes. Or call (804) 848-9575 anytime.";
-        }
-      }
-
-      setTimeout(() => addMessage(reply, true), 400);
-    }
-
-    function sendToWebhook(payload) {
-      fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Nida-Secret': NIDA_SECRET },
-        body: JSON.stringify(payload)
-      }).catch(() => {});
-    }
-
-    function sendMessage() {
-      const text = input.value.trim();
-      if (!text) return;
-      addMessage(text, false);
-      input.value = '';
-      botReply(text);
-    }
-
-    sendBtn.addEventListener('click', sendMessage);
-    input.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
+    document.body.appendChild(panel);
+    document.body.appendChild(launcher);
   })();
 
 })();
