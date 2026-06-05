@@ -43,6 +43,12 @@ def head(title, desc, canonical, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{prefix}css/style.css">
+<script
+  src="https://www.nida-os.com/nida-analytics.js"
+  data-workspace-id="4a9a195e-fc77-4b3a-9304-fc940d575e13"
+  data-website-id=""
+  async
+></script>
 </head>
 <body>
 <div class="sticky-cta"><div class="sticky-cta-inner"><a href="tel:{PHONE_RAW}" class="btn btn-dark">Call Now</a><button class="btn btn-primary" data-open-modal>Free Quote</button></div></div>
