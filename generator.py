@@ -139,7 +139,7 @@ def write_city_page(slug, city, county, d1, d2, d3):
         f"Fast, professional home services serving {city} and surrounding {county} communities."
     ) + f"""
 <section class="content-section"><div class="container">
-<div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+<div class="reveal reveal-2col loose">
   <div><span class="section-label">Local Service</span><h2 style="text-align:left;" class="section-title">Trusted Home Services in {city}</h2><p style="color:var(--text-secondary);line-height:1.7;margin-bottom:20px;">{COMPANY} proudly serves {city}, {d1}. We understand the unique needs of {d2} in this area and provide fast, reliable service with upfront pricing.</p><p style="color:var(--text-secondary);line-height:1.7;margin-bottom:20px;">Whether you are maintaining {d3} or tackling a major renovation, our local crew arrives on time, handles all the heavy lifting, and leaves your property in better shape than we found it. Every job is backed by our satisfaction guarantee.</p><div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;"><button class="btn btn-primary" data-open-modal>Get a Free Quote</button><a href="tel:{PHONE_RAW}" class="btn btn-dark">Call {PHONE}</a></div></div>
   <div class="service-card" style="padding:28px;"><h3 style="margin-bottom:16px;">Why {city} Chooses Us</h3><div style="display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Same-day appointments available</span></div><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Upfront, no-surprise pricing</span></div><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Licensed & insured professionals</span></div><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Free estimates on every project</span></div><div style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green-light);">&#10003;</span><span style="color:var(--text-secondary);font-size:0.9rem;">Satisfaction guaranteed</span></div></div></div>
 </div>
@@ -178,7 +178,7 @@ def write_about():
         f"{DOMAIN}/about.html"
     ) + nav() + page_header("Our Story", "About Dre Home Services", "A family-owned business built on quality workmanship, honest pricing, and treating every home like our own.") + f"""
 <section class="content-section"><div class="container">
-<div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+<div class="reveal reveal-2col">
   <div><h2>Built on Trust, Backed by Skill</h2><p>Dre Home Services LLC was founded by Andre with a simple mission: provide reliable, high-quality home services that homeowners can trust. What started as a one-man roofing operation has grown into a full-service home improvement company serving Fredericksburg, Stafford, Woodbridge, and surrounding Central Virginia communities.</p><p>Every project — whether it's a minor plumbing fix or a full roof replacement — gets the same attention to detail. We show up on time, communicate clearly, and never leave a mess behind.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
     <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-orange);">10+</div><div style="font-size:0.9rem;color:var(--text-secondary);">Years Experience</div></div>
     <div class="service-card" style="text-align:center;padding:24px;"><div style="font-size:2rem;font-weight:800;color:var(--brand-orange);">500+</div><div style="font-size:0.9rem;color:var(--text-secondary);">Projects Completed</div></div>
@@ -203,7 +203,7 @@ def write_contact():
         f"{DOMAIN}/contact.html"
     ) + nav() + page_header("Get in Touch", "Contact Dre Home Services", "Have a question or ready to start your project? We're here to help.") + f"""
 <section class="content-section"><div class="container">
-<div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+<div class="reveal reveal-2col">
   <div><h2>Reach Out Anytime</h2><p>Whether you need an emergency repair, a routine inspection, or a major renovation quote, we're just a call or message away.</p>
   <div style="display:flex;flex-direction:column;gap:20px;margin-top:32px;">
     <div class="service-card"><div style="display:flex;align-items:center;gap:16px;"><div class="hero-card-icon">&#128222;</div><div><div style="font-weight:600;">Phone</div><a href="tel:{PHONE_RAW}">{PHONE}</a></div></div></div>
@@ -402,7 +402,7 @@ def write_sitemap():
     ) + nav() + page_header("Navigation", "Sitemap", "All pages on the Dre Home Services website.") + f"""
 <section class="content-section"><div class="container" style="max-width:800px;">
 <div class="reveal">
-<ul style="list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+<ul class="sitemap-grid">
 {links}
 </ul>
 </div>

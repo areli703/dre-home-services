@@ -440,6 +440,37 @@ nav {
   .hero-actions .btn { flex:1; justify-content:center; }
 }
 
+/* ---- Reveal two-column responsive layout (replaces inline grid) ---- */
+.reveal-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.reveal-2col.loose { gap: 64px; }
+.reveal-2col.tight { gap: 24px; }
+
+.reveal-2col-spaced { margin-bottom: 80px; }
+
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+@media (max-width: 768px) {
+  .reveal-2col,
+  .reveal-2col.loose,
+  .reveal-2col.tight,
+  .reveal-2col-spaced {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .sitemap-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
 /* ---- Services ---- */
 .services-section { padding:80px 0; background:var(--white); }
 .services-grid {
