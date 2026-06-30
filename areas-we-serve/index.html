@@ -31,12 +31,20 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,300;1,9..40,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Areas We Serve | Fredericksburg, Stafford, Woodbridge, King George, Caroline, Culpeper", "url": "https://www.drehomeservicesllc.com/areas-we-serve", "description": "Dre Home Services proudly serves Fredericksburg, Stafford, Woodbridge, King George, Caroline County & Culpeper. Local, licensed, and insured home improvement.", "publisher": {"@type": "Organization", "name": "Dre Home Services LLC", "logo": {"@type": "ImageObject", "url": "https://www.drehomeservicesllc.com/images/logo.png"}}}</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KGGK2597');</script>
+<!-- Google Tag Manager (consent-gated) -->
+<script>
+window.dataLayer = window.dataLayer || [];
+(function() {
+  try {
+    var consent = localStorage.getItem('dre_consent_v1');
+    if (consent === 'granted') {
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KGGK2597');
+    } else {
+      window.dataLayer.push({'event': 'consent_default_denied'});
+    }
+  } catch(e) {}
+})();
+</script>
 <!-- End Google Tag Manager --></head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -88,7 +96,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="form-group"><label for="city">Your City *</label><select id="city" name="city" required><option value="">Select your city...</option><option value="Fredericksburg">Fredericksburg</option><option value="King George">King George</option><option value="Caroline">Caroline</option><option value="Stafford">Stafford</option><option value="Culpeper">Culpeper</option><option value="Woodbridge">Woodbridge</option><option value="Other">Other</option></select></div>
         <div class="form-group"><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Tell us about your project, timeline, and any specific needs..."></textarea></div>
-        <button type="submit" class="btn btn-primary btn-large btn-glow">Get My Free Estimate</button>
+        <div class="form-group" style="margin-top:16px;">
+        <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.8rem;color:var(--text-secondary);line-height:1.5;font-weight:400;">
+          <input type="checkbox" id="form-consent" name="consent" required style="margin-top:3px;flex-shrink:0;">
+          <span>I agree to be contacted by Dre Home Services LLC about my request. I have read the <a href="/privacy" target="_blank">Privacy Policy</a> and consent to the collection and use of my information as described. Message and data rates may apply.</span>
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-large btn-glow">Get My Free Estimate</button>
         <p style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:16px;">Or call us directly at <a href="tel:+18048489575">(804) 848-9575</a></p>
       </form>
       <div class="modal-success" id="modal-success">
@@ -101,7 +115,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 
-<footer><div class="container"><div class="footer-grid"><div><div class="footer-brand"><img src="../images/logo-dark.png" alt="Dre Home Services" class="footer-logo"></div><p class="footer-desc">Professional roofing, plumbing, electrical, gutter, power washing, deck & siding services across Central Virginia. Free estimates. Licensed & insured.</p></div><div class="footer-col"><h4>Services</h4><ul><li><a href="../services#roofing">Roofing</a></li><li><a href="../services#inspection">Inspection</a></li><li><a href="../services#waterproofing">Waterproofing</a></li><li><a href="../services#gutters">Gutters</a></li><li><a href="../services#electrical-plumbing">Electrical & Plumbing</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="../about">About</a></li><li><a href="../areas-we-serve">Areas</a></li><li><a href="../testimonials">Testimonials</a></li><li><a href="../faq">FAQ</a></li><li><a href="../blog/index">Blog</a></li><li><a href="../contact">Contact</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+18048489575">(804) 848-9575</a></li><li><a href="mailto:info@drehomeservicesllc.com">info@drehomeservicesllc.com</a></li><li><button data-open-modal style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:0.9rem;cursor:pointer;padding:0;">Free Estimate</button></li></ul></div></div><div class="footer-bottom"><span>&copy; 2026 Dre Home Services LLC</span><span><a href="../privacy" style="color:rgba(255,255,255,0.4);">Privacy</a> &middot; <a href="../terms" style="color:rgba(255,255,255,0.4);">Terms</a></span></div></div></footer>
+<footer><div class="container"><div class="footer-grid"><div><div class="footer-brand"><img src="../images/logo-dark.png" alt="Dre Home Services" class="footer-logo"></div><p class="footer-desc">Professional roofing, plumbing, electrical, gutter, power washing, deck & siding services across Central Virginia. Free estimates. Licensed & insured.</p></div><div class="footer-col"><h4>Services</h4><ul><li><a href="../services#roofing">Roofing</a></li><li><a href="../services#inspection">Inspection</a></li><li><a href="../services#waterproofing">Waterproofing</a></li><li><a href="../services#gutters">Gutters</a></li><li><a href="../services#electrical-plumbing">Electrical & Plumbing</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="../about">About</a></li><li><a href="../areas-we-serve">Areas</a></li><li><a href="../testimonials">Testimonials</a></li><li><a href="../faq">FAQ</a></li><li><a href="../blog/index">Blog</a></li><li><a href="../contact">Contact</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+18048489575">(804) 848-9575</a></li><li><a href="mailto:info@drehomeservicesllc.com">info@drehomeservicesllc.com</a></li><li><button data-open-modal style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:0.9rem;cursor:pointer;padding:0;">Free Estimate</button></li></ul></div></div><div class="footer-bottom"><span>&copy; 2026 Dre Home Services LLC</span><span><a href="../privacy" style="color:rgba(255,255,255,0.4);">Privacy</a> &middot; <a href="../terms" style="color:rgba(255,255,255,0.4);">Terms</a> &middot; <a href="../do-not-sell" style="color:rgba(255,255,255,0.35);">Do Not Sell or Share</a></span></div></div></footer>
 <script src="../js/main.js?v=3"></script>
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-banner-text">
+    We use cookies and analytics (Google Tag Manager) to improve your experience and measure site performance. You can accept or decline non-essential cookies. See our <a href="/privacy">Privacy Policy</a> for details.
+  </div>
+  <div class="cookie-banner-actions">
+    <button id="cookie-accept" class="cookie-banner-btn cookie-btn-accept">Accept</button>
+    <button id="cookie-decline" class="cookie-banner-btn cookie-btn-decline">Decline</button>
+  </div>
+</div>
+<script src="js/main.js?v=5"></script>
+
 </body></html>
 

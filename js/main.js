@@ -304,3 +304,51 @@
   })();
 
 })();
+
+
+  /* ---- Cookie Consent Banner ---- */
+  const CONSENT_KEY = 'dre_consent_v1';
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+
+  function enableGTM() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({'consent': 'granted', 'event': 'consent_update'});
+  }
+  function disableGTM() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({'consent': 'denied', 'event': 'consent_update'});
+  }
+
+  let storedConsent = null;
+  try { storedConsent = localStorage.getItem(CONSENT_KEY); } catch(e) {}
+
+  if (banner) {
+    if (storedConsent === null) {
+      // First visit — show banner, default-deny analytics until choice
+      disableGTM();
+      setTimeout(() => banner.classList.add('show'), 800);
+    } else if (storedConsent === 'granted') {
+      enableGTM();
+    } else {
+      disableGTM();
+    }
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', () => {
+        try { localStorage.setItem(CONSENT_KEY, 'granted'); } catch(e) {}
+        enableGTM();
+        banner.classList.remove('show');
+      });
+    }
+    if (declineBtn) {
+      declineBtn.addEventListener('click', () => {
+        try { localStorage.setItem(CONSENT_KEY, 'denied'); } catch(e) {}
+        disableGTM();
+        banner.classList.remove('show');
+      });
+    }
+  } else if (storedConsent === 'granted') {
+    enableGTM();
+  }

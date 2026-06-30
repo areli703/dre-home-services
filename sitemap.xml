@@ -91,4 +91,5 @@
   <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/electrical/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/plumbing/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.drehomeservicesllc.com/areas/woodbridge/deck/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.drehomeservicesllc.com/do-not-sell/</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
 </urlset>

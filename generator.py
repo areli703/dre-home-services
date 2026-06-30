@@ -43,12 +43,20 @@ def head(title, desc, canonical, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{prefix}css/style.css">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
-new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-}})(window,document,'script','dataLayer','GTM-KGGK2597');</script>
+<!-- Google Tag Manager (consent-gated) -->
+<script>
+window.dataLayer = window.dataLayer || [];
+(function() {{
+  try {{
+    var consent = localStorage.getItem('dre_consent_v1');
+    if (consent === 'granted') {{
+      (function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}})(window,document,'script','dataLayer','GTM-KGGK2597');
+    }} else {{
+      window.dataLayer.push({{'event': 'consent_default_denied'}});
+    }}
+  }} catch(e) {{}}
+}})();
+</script>
 <!-- End Google Tag Manager -->
 </head>
 <body>
@@ -88,6 +96,12 @@ def modal_overlay(prefix=""):
         </div>
         <div class="form-group"><label for="city">Your City *</label><select id="city" name="city" required><option value="">Select your city...</option><option value="Fredericksburg">Fredericksburg</option><option value="King George">King George</option><option value="Caroline">Caroline</option><option value="Stafford">Stafford</option><option value="Culpeper">Culpeper</option><option value="Woodbridge">Woodbridge</option><option value="Other">Other</option></select></div>
         <div class="form-group"><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Tell us about your project, timeline, and any specific needs..."></textarea></div>
+        <div class="form-group" style="margin-top:16px;">
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.8rem;color:var(--text-secondary);line-height:1.5;font-weight:400;">
+            <input type="checkbox" id="form-consent" name="consent" required style="margin-top:3px;flex-shrink:0;">
+            <span>I agree to be contacted by Dre Home Services LLC about my request. I have read the <a href="{prefix}privacy" target="_blank">Privacy Policy</a> and consent to the collection and use of my information as described. Message and data rates may apply.</span>
+          </label>
+        </div>
         <button type="submit" class="btn btn-primary btn-large btn-glow">Get My Free Estimate</button>
         <p style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:16px;">Or call us directly at <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
       </form>
@@ -109,8 +123,18 @@ def cta_banner(prefix=""):
 def footer(prefix=""):
     logo_path = f"{prefix}images/logo.png"
     return f"""
-<footer><div class="container"><div class="footer-grid"><div><div class="footer-brand"><img src="{logo_path}" alt="Dre Home Services" class="footer-logo">Dre Home Services</div><p class="footer-desc">Professional roofing, plumbing, electrical, gutter, power washing, deck & siding services across Central Virginia. Free estimates. Licensed & insured.</p></div><div class="footer-col"><h4>Services</h4><ul><li><a href="{prefix}services.html#roofing">Roofing</a></li><li><a href="{prefix}services.html#inspection">Inspection</a></li><li><a href="{prefix}services.html#waterproofing">Waterproofing</a></li><li><a href="{prefix}services.html#gutters">Gutters</a></li><li><a href="{prefix}services.html#electrical-plumbing">Electrical & Plumbing</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}areas-we-serve.html">Areas</a></li><li><a href="{prefix}testimonials.html">Testimonials</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:{PHONE_RAW}">{PHONE}</a></li><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li><button data-open-modal style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:0.9rem;cursor:pointer;padding:0;">Free Estimate</button></li></ul></div></div><div class="footer-bottom"><span>&copy; 2026 Dre Home Services LLC</span><span><a href="{prefix}privacy.html" style="color:rgba(255,255,255,0.4);">Privacy</a> &middot; <a href="{prefix}terms.html" style="color:rgba(255,255,255,0.4);">Terms</a></span></div></div></footer>
-<script src="{prefix}js/main.js"></script>
+<footer><div class="container"><div class="footer-grid"><div><div class="footer-brand"><img src="{logo_path}" alt="Dre Home Services" class="footer-logo">Dre Home Services</div><p class="footer-desc">Professional roofing, plumbing, electrical, gutter, power washing, deck & siding services across Central Virginia. Free estimates. Licensed & insured.</p></div><div class="footer-col"><h4>Services</h4><ul><li><a href="{prefix}services.html#roofing">Roofing</a></li><li><a href="{prefix}services.html#inspection">Inspection</a></li><li><a href="{prefix}services.html#waterproofing">Waterproofing</a></li><li><a href="{prefix}services.html#gutters">Gutters</a></li><li><a href="{prefix}services.html#electrical-plumbing">Electrical & Plumbing</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="{prefix}about.html">About</a></li><li><a href="{prefix}areas-we-serve.html">Areas</a></li><li><a href="{prefix}testimonials.html">Testimonials</a></li><li><a href="{prefix}faq.html">FAQ</a></li><li><a href="{prefix}contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:{PHONE_RAW}">{PHONE}</a></li><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li><button data-open-modal style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:0.9rem;cursor:pointer;padding:0;">Free Estimate</button></li></ul></div></div><div class="footer-bottom"><span>&copy; 2026 Dre Home Services LLC</span><span><a href="{prefix}privacy" style="color:rgba(255,255,255,0.4);">Privacy</a> &middot; <a href="{prefix}terms" style="color:rgba(255,255,255,0.4);">Terms</a> &middot; <a href="{prefix}do-not-sell" style="color:rgba(255,255,255,0.4);">Do Not Sell or Share</a></span></div></div></footer>
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-banner-text">
+    We use cookies and analytics (Google Tag Manager) to improve your experience and measure site performance. You can accept or decline non-essential cookies. See our <a href="{prefix}privacy">Privacy Policy</a> for details.
+  </div>
+  <div class="cookie-banner-actions">
+    <button id="cookie-accept" class="cookie-banner-btn cookie-btn-accept">Accept</button>
+    <button id="cookie-decline" class="cookie-banner-btn cookie-btn-decline">Decline</button>
+  </div>
+</div>
+<script src="{prefix}js/main.js?v=5"></script>
 </body></html>
 """
 
@@ -335,14 +359,41 @@ def write_privacy():
     ) + nav() + page_header("Legal", "Privacy Policy", "Your privacy matters to us. Here's how we handle your information.") + f"""
 <section class="content-section"><div class="container" style="max-width:800px;">
 <div class="reveal">
-<p style="margin-bottom:24px;"><strong>Last updated:</strong> June 1, 2026</p>
+<p style="margin-bottom:24px;"><strong>Last updated:</strong> June 30, 2026</p>
 <h3>1. Information We Collect</h3><p>We collect information you provide through our quote form, including your name, phone number, email address, city, service requested, and project details. We may also collect information about how you interact with our website.</p>
 <h3>2. How We Use Your Information</h3><p>We use your information to respond to quote requests, schedule appointments, communicate about your project, and improve our services. We do not sell or rent your personal information to third parties.</p>
 <h3>3. Information Sharing</h3><p>We may share your information with trusted service providers who assist us in operating our website or servicing you (e.g., CRM systems). All providers are bound by confidentiality agreements.</p>
 <h3>4. Data Security</h3><p>We implement reasonable security measures to protect your personal information. However, no method of transmission over the internet is 100% secure.</p>
 <h3>5. Your Choices</h3><p>You may contact us at any time to update, correct, or delete your personal information. Email {EMAIL} or call {PHONE}.</p>
-<h3>6. Cookies</h3><p>We may use cookies to enhance your browsing experience. You can set your browser to refuse cookies.</p>
-<h3>7. Contact Us</h3><p>If you have questions about this privacy policy, contact us at <a href="mailto:{EMAIL}">{EMAIL}</a> or <a href="tel:{PHONE_RAW}">{PHONE}</a>.</p>
+<h3>6. Cookies, Analytics, and Tracking Technologies</h3>
+<p>We use the following technologies on our website:</p>
+<ul style="line-height:1.7;margin-bottom:16px;">
+<li><strong>Google Tag Manager (GTM)</strong> — a tag management system that controls when other scripts (including Google Analytics) run, based on your consent. GTM itself does not collect personal data.</li>
+<li><strong>Google Analytics 4 (GA4)</strong> — collects anonymized usage data such as pages visited, time on site, device type, and approximate geographic region. GA4 does not identify you personally. Data is retained for 14 months, then automatically deleted.</li>
+<li><strong>Local storage</strong> — we store your cookie consent choice (accept/decline) in your browser's local storage for 365 days.</li>
+</ul>
+<p><strong>Your choices:</strong> A cookie consent banner appears on your first visit. You can accept or decline non-essential cookies at any time. Declining disables analytics. You can also clear local storage in your browser to reset your choice.</p>
+
+<h3>7. Your Privacy Rights (CCPA / Virginia VCDPA)</h3>
+<p>If you are a California or Virginia resident, you have the following rights:</p>
+<ul style="line-height:1.7;margin-bottom:16px;">
+<li><strong>Right to Know</strong> — what personal information we collect, use, share, or sell.</li>
+<li><strong>Right to Access</strong> — a copy of the personal information we have collected about you in the past 12 months.</li>
+<li><strong>Right to Delete</strong> — request deletion of your personal information, subject to certain exceptions.</li>
+<li><strong>Right to Correct</strong> — request correction of inaccurate personal information.</li>
+<li><strong>Right to Opt Out of Sale or Sharing</strong> — see our <a href="{prefix}do-not-sell">Do Not Sell or Share</a> page.</li>
+<li><strong>Right to Non-Discrimination</strong> — we will not deny service or charge different prices for exercising your rights.</li>
+</ul>
+<p>To exercise any of these rights, email <a href="mailto:{EMAIL}">{EMAIL}</a> or call <a href="tel:{PHONE_RAW}">{PHONE}</a>. We will respond within 45 days.</p>
+
+<h3>8. Data Retention</h3>
+<p>We retain personal information only as long as necessary: quote form submissions 3 years, customer service records 7 years (tax/contractor license requirements), Google Analytics data 14 months, cookie consent records 365 days.</p>
+
+<h3>9. Children's Privacy</h3><p>Our website is not directed to children under 13, and we do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us.</p>
+
+<h3>10. Changes to This Policy</h3><p>We may update this privacy policy from time to time. The "Last updated" date above reflects the most recent revision. Material changes will be noted with a homepage banner for 30 days.</p>
+
+<h3>11. Contact Us</h3><p>If you have questions about this privacy policy, contact us at <a href="mailto:{EMAIL}">{EMAIL}</a> or <a href="tel:{PHONE_RAW}">{PHONE}</a>.</p>
 </div>
 </div></section>
 {modal_overlay()}
@@ -390,6 +441,7 @@ def write_sitemap():
         ("quote.html", "Free Estimate"),
         ("privacy.html", "Privacy Policy"),
         ("terms.html", "Terms of Service"),
+        ("do-not-sell.html", "Do Not Sell or Share"),
     ]
     for slug, city, county, _, _, _ in cities:
         pages.append((f"areas/{slug}.html", f"{city} — {county}"))
