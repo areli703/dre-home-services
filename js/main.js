@@ -241,26 +241,31 @@
     const CHATBOT_ID = '9f7872ba-5d3f-40e7-a511-0a3d572e1330';
     const EMBED_URL = 'https://www.nida-os.com/embed/chatbot/' + CHATBOT_ID;
 
-    const launcher = document.createElement('div');
+    const launcher = document.createElement('button');
     launcher.id = 'nida-chatbot-launcher';
     launcher.setAttribute('aria-label', 'Open chat');
+    launcher.setAttribute('aria-expanded', 'false');
+    launcher.type = 'button';
     launcher.innerHTML = '\
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">\
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>\
       </svg>';
-    launcher.style.cssText = 'position:fixed;bottom:24px;right:24px;width:64px;height:64px;background:#D06000;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(208,96,0,0.4);z-index:9999;transition:transform 0.2s;';
+    launcher.style.cssText = 'position:fixed;bottom:24px;right:24px;width:64px;height:64px;background:#D06000;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(208,96,0,0.4);z-index:9999;transition:transform 0.2s;border:none;padding:0;';
 
     const panel = document.createElement('iframe');
     panel.id = 'nida-chatbot-panel';
     panel.src = EMBED_URL;
     panel.title = 'Dre Home Services Chat';
     panel.setAttribute('allow', 'clipboard-write');
+    panel.setAttribute('aria-hidden', 'true');
     panel.style.cssText = 'position:fixed;bottom:100px;right:24px;width:408px;height:640px;max-height:calc(100vh - 120px);border:none;border-radius:28px;box-shadow:0 8px 32px rgba(0,0,0,0.3);z-index:9998;display:none;background:white;';
 
     let isOpen = false;
     launcher.addEventListener('click', function() {
       isOpen = !isOpen;
       panel.style.display = isOpen ? 'block' : 'none';
+      launcher.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      launcher.setAttribute('aria-label', isOpen ? 'Close chat' : 'Open chat');
       launcher.style.transform = isOpen ? 'scale(0.9)' : 'scale(1)';
     });
 
