@@ -268,8 +268,16 @@ nav {
 .hero-photo {
   position:absolute;
   inset:0;
-  background:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1920&q=80') center/cover no-repeat;
   z-index:1;
+}
+.hero-photo picture,
+.hero-photo .hero-photo-img {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
 }
 .hero-photo::after {
   content:''; position:absolute; inset:0;

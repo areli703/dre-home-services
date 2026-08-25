@@ -1,0 +1,146 @@
+<!-- concrete-epoxy-floor (orig: 445.9 KB, 1536x2048) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/concrete-epoxy-floor-640w.avif 640w, images/optimized/concrete-epoxy-floor-960w.avif 960w, images/optimized/concrete-epoxy-floor-1280w.avif 1280w">
+  <source type="image/webp" srcset="images/optimized/concrete-epoxy-floor-640w.webp 640w, images/optimized/concrete-epoxy-floor-960w.webp 960w, images/optimized/concrete-epoxy-floor-1280w.webp 1280w">
+  <img src="images/optimized/concrete-epoxy-floor-960w.webp" width="960" height="1280" alt="concrete-epoxy-floor" loading="lazy" decoding="async">
+</picture>
+
+<!-- concrete-floor-sealing (orig: 593.8 KB, 1536x2048) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/concrete-floor-sealing-640w.avif 640w, images/optimized/concrete-floor-sealing-960w.avif 960w, images/optimized/concrete-floor-sealing-1280w.avif 1280w">
+  <source type="image/webp" srcset="images/optimized/concrete-floor-sealing-640w.webp 640w, images/optimized/concrete-floor-sealing-960w.webp 960w, images/optimized/concrete-floor-sealing-1280w.webp 1280w">
+  <img src="images/optimized/concrete-floor-sealing-960w.webp" width="960" height="1280" alt="concrete-floor-sealing" loading="lazy" decoding="async">
+</picture>
+
+<!-- deck-built-in-bench (orig: 511.5 KB, 1536x2048) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/deck-built-in-bench-640w.avif 640w, images/optimized/deck-built-in-bench-960w.avif 960w, images/optimized/deck-built-in-bench-1280w.avif 1280w">
+  <source type="image/webp" srcset="images/optimized/deck-built-in-bench-640w.webp 640w, images/optimized/deck-built-in-bench-960w.webp 960w, images/optimized/deck-built-in-bench-1280w.webp 1280w">
+  <img src="images/optimized/deck-built-in-bench-960w.webp" width="960" height="1280" alt="deck-built-in-bench" loading="lazy" decoding="async">
+</picture>
+
+<!-- deck-construction-1 (orig: 518.0 KB, 1536x2048) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/deck-construction-1-640w.avif 640w, images/optimized/deck-construction-1-960w.avif 960w, images/optimized/deck-construction-1-1280w.avif 1280w">
+  <source type="image/webp" srcset="images/optimized/deck-construction-1-640w.webp 640w, images/optimized/deck-construction-1-960w.webp 960w, images/optimized/deck-construction-1-1280w.webp 1280w">
+  <img src="images/optimized/deck-construction-1-960w.webp" width="960" height="1280" alt="deck-construction-1" loading="lazy" decoding="async">
+</picture>
+
+<!-- deck-construction-2 (orig: 634.0 KB, 1536x2048) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/deck-construction-2-640w.avif 640w, images/optimized/deck-construction-2-960w.avif 960w, images/optimized/deck-construction-2-1280w.avif 1280w">
+  <source type="image/webp" srcset="images/optimized/deck-construction-2-640w.webp 640w, images/optimized/deck-construction-2-960w.webp 960w, images/optimized/deck-construction-2-1280w.webp 1280w">
+  <img src="images/optimized/deck-construction-2-960w.webp" width="960" height="1280" alt="deck-construction-2" loading="lazy" decoding="async">
+</picture>
+
+<!-- deck-construction-3 (orig: 680.8 KB, 1536x2048) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/deck-construction-3-640w.avif 640w, images/optimized/deck-construction-3-960w.avif 960w, images/optimized/deck-construction-3-1280w.avif 1280w">
+  <source type="image/webp" srcset="images/optimized/deck-construction-3-640w.webp 640w, images/optimized/deck-construction-3-960w.webp 960w, images/optimized/deck-construction-3-1280w.webp 1280w">
+  <img src="images/optimized/deck-construction-3-960w.webp" width="960" height="1280" alt="deck-construction-3" loading="lazy" decoding="async">
+</picture>
+
+<!-- deck-gazebo (orig: 682.3 KB, 1536x2048) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/deck-gazebo-640w.avif 640w, images/optimized/deck-gazebo-960w.avif 960w, images/optimized/deck-gazebo-1280w.avif 1280w">
+  <source type="image/webp" srcset="images/optimized/deck-gazebo-640w.webp 640w, images/optimized/deck-gazebo-960w.webp 960w, images/optimized/deck-gazebo-1280w.webp 1280w">
+  <img src="images/optimized/deck-gazebo-960w.webp" width="960" height="1280" alt="deck-gazebo" loading="lazy" decoding="async">
+</picture>
+
+<!-- deck-new-backyard (orig: 622.5 KB, 1536x2048) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/deck-new-backyard-640w.avif 640w, images/optimized/deck-new-backyard-960w.avif 960w, images/optimized/deck-new-backyard-1280w.avif 1280w">
+  <source type="image/webp" srcset="images/optimized/deck-new-backyard-640w.webp 640w, images/optimized/deck-new-backyard-960w.webp 960w, images/optimized/deck-new-backyard-1280w.webp 1280w">
+  <img src="images/optimized/deck-new-backyard-960w.webp" width="960" height="1280" alt="deck-new-backyard" loading="lazy" decoding="async">
+</picture>
+
+<!-- deck-stairs (orig: 482.4 KB, 1536x2048) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/deck-stairs-640w.avif 640w, images/optimized/deck-stairs-960w.avif 960w, images/optimized/deck-stairs-1280w.avif 1280w">
+  <source type="image/webp" srcset="images/optimized/deck-stairs-640w.webp 640w, images/optimized/deck-stairs-960w.webp 960w, images/optimized/deck-stairs-1280w.webp 1280w">
+  <img src="images/optimized/deck-stairs-960w.webp" width="960" height="1280" alt="deck-stairs" loading="lazy" decoding="async">
+</picture>
+
+<!-- favicon (orig: 1.95 MB, 1536x1024) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/favicon-32w.avif 32w, images/optimized/favicon-48w.avif 48w, images/optimized/favicon-64w.avif 64w">
+  <source type="image/webp" srcset="images/optimized/favicon-32w.webp 32w, images/optimized/favicon-48w.webp 48w, images/optimized/favicon-64w.webp 64w">
+  <img src="images/optimized/favicon-64w.webp" width="64" height="43" alt="favicon" loading="lazy" decoding="async">
+</picture>
+
+<!-- logo-alt (orig: 356.7 KB, 1254x1254) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/logo-alt-640w.avif 640w, images/optimized/logo-alt-960w.avif 960w, images/optimized/logo-alt-1254w.avif 1254w">
+  <source type="image/webp" srcset="images/optimized/logo-alt-640w.webp 640w, images/optimized/logo-alt-960w.webp 960w, images/optimized/logo-alt-1254w.webp 1254w">
+  <img src="images/optimized/logo-alt-960w.webp" width="960" height="960" alt="logo-alt" loading="lazy" decoding="async">
+</picture>
+
+<!-- logo-dark (orig: 1.85 MB, 1536x1024) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/logo-dark-180w.avif 180w, images/optimized/logo-dark-360w.avif 360w, images/optimized/logo-dark-540w.avif 540w">
+  <source type="image/webp" srcset="images/optimized/logo-dark-180w.webp 180w, images/optimized/logo-dark-360w.webp 360w, images/optimized/logo-dark-540w.webp 540w">
+  <img src="images/optimized/logo-dark-540w.webp" width="540" height="360" alt="logo-dark" loading="lazy" decoding="async">
+</picture>
+
+<!-- logo-new (orig: 372.6 KB, 1254x784) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/logo-new-180w.avif 180w, images/optimized/logo-new-360w.avif 360w, images/optimized/logo-new-540w.avif 540w">
+  <source type="image/webp" srcset="images/optimized/logo-new-180w.webp 180w, images/optimized/logo-new-360w.webp 360w, images/optimized/logo-new-540w.webp 540w">
+  <img src="images/optimized/logo-new-540w.webp" width="540" height="338" alt="logo-new" loading="lazy" decoding="async">
+</picture>
+
+<!-- logo (orig: 372.6 KB, 1254x784) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/logo-180w.avif 180w, images/optimized/logo-360w.avif 360w, images/optimized/logo-540w.avif 540w">
+  <source type="image/webp" srcset="images/optimized/logo-180w.webp 180w, images/optimized/logo-360w.webp 360w, images/optimized/logo-540w.webp 540w">
+  <img src="images/optimized/logo-540w.webp" width="540" height="338" alt="logo" loading="lazy" decoding="async">
+</picture>
+
+<!-- og-image (orig: 1.82 MB, 1731x909) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/og-image-1200w.avif 1200w">
+  <source type="image/webp" srcset="images/optimized/og-image-1200w.webp 1200w">
+  <img src="images/optimized/og-image-1200w.webp" width="1200" height="630" alt="og-image" loading="lazy" decoding="async">
+</picture>
+
+<!-- roofing-installation (orig: 346.0 KB, 828x1104) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/roofing-installation-640w.avif 640w, images/optimized/roofing-installation-828w.avif 828w, images/optimized/roofing-installation-828w.avif 828w">
+  <source type="image/webp" srcset="images/optimized/roofing-installation-640w.webp 640w, images/optimized/roofing-installation-828w.webp 828w, images/optimized/roofing-installation-828w.webp 828w">
+  <img src="images/optimized/roofing-installation-828w.webp" width="828" height="1104" alt="roofing-installation" loading="lazy" decoding="async">
+</picture>
+
+<!-- roofing-shingles (orig: 243.8 KB, 828x1101) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/roofing-shingles-640w.avif 640w, images/optimized/roofing-shingles-828w.avif 828w, images/optimized/roofing-shingles-828w.avif 828w">
+  <source type="image/webp" srcset="images/optimized/roofing-shingles-640w.webp 640w, images/optimized/roofing-shingles-828w.webp 828w, images/optimized/roofing-shingles-828w.webp 828w">
+  <img src="images/optimized/roofing-shingles-828w.webp" width="828" height="1101" alt="roofing-shingles" loading="lazy" decoding="async">
+</picture>
+
+<!-- roofing-skylight-repair (orig: 246.0 KB, 794x1082) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/roofing-skylight-repair-640w.avif 640w, images/optimized/roofing-skylight-repair-794w.avif 794w, images/optimized/roofing-skylight-repair-794w.avif 794w">
+  <source type="image/webp" srcset="images/optimized/roofing-skylight-repair-640w.webp 640w, images/optimized/roofing-skylight-repair-794w.webp 794w, images/optimized/roofing-skylight-repair-794w.webp 794w">
+  <img src="images/optimized/roofing-skylight-repair-794w.webp" width="794" height="1082" alt="roofing-skylight-repair" loading="lazy" decoding="async">
+</picture>
+
+<!-- roofing-skylight (orig: 297.5 KB, 828x1110) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/roofing-skylight-640w.avif 640w, images/optimized/roofing-skylight-828w.avif 828w, images/optimized/roofing-skylight-828w.avif 828w">
+  <source type="image/webp" srcset="images/optimized/roofing-skylight-640w.webp 640w, images/optimized/roofing-skylight-828w.webp 828w, images/optimized/roofing-skylight-828w.webp 828w">
+  <img src="images/optimized/roofing-skylight-828w.webp" width="828" height="1110" alt="roofing-skylight" loading="lazy" decoding="async">
+</picture>
+
+<!-- roofing-underlayment (orig: 252.5 KB, 828x1110) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/roofing-underlayment-640w.avif 640w, images/optimized/roofing-underlayment-828w.avif 828w, images/optimized/roofing-underlayment-828w.avif 828w">
+  <source type="image/webp" srcset="images/optimized/roofing-underlayment-640w.webp 640w, images/optimized/roofing-underlayment-828w.webp 828w, images/optimized/roofing-underlayment-828w.webp 828w">
+  <img src="images/optimized/roofing-underlayment-828w.webp" width="828" height="1110" alt="roofing-underlayment" loading="lazy" decoding="async">
+</picture>
+
+<!-- roofing-valley (orig: 258.2 KB, 828x1097) -->
+<picture>
+  <source type="image/avif" srcset="images/optimized/roofing-valley-640w.avif 640w, images/optimized/roofing-valley-828w.avif 828w, images/optimized/roofing-valley-828w.avif 828w">
+  <source type="image/webp" srcset="images/optimized/roofing-valley-640w.webp 640w, images/optimized/roofing-valley-828w.webp 828w, images/optimized/roofing-valley-828w.webp 828w">
+  <img src="images/optimized/roofing-valley-828w.webp" width="828" height="1097" alt="roofing-valley" loading="lazy" decoding="async">
+</picture>

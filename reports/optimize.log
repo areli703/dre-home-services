@@ -1,0 +1,31 @@
+
+Processing 21 source images from images/ -> images/optimized/
+
+  concrete-epoxy-floor.jpg ... ok  445.9 KB → 213.9 KB (-52.0%)
+  concrete-floor-sealing.jpg ... ok  593.8 KB → 567.7 KB (-4.4%)
+  deck-built-in-bench.jpg ... ok  511.5 KB → 1.20 MB (--141.2%)
+  deck-construction-1.jpg ... ok  518.0 KB → 1.17 MB (--130.6%)
+  deck-construction-2.jpg ... ok  634.0 KB → 1.46 MB (--135.3%)
+  deck-construction-3.jpg ... ok  680.8 KB → 1.59 MB (--139.0%)
+  deck-gazebo.jpg ... ok  682.3 KB → 1.58 MB (--136.9%)
+  deck-new-backyard.jpg ... ok  622.5 KB → 1.46 MB (--140.4%)
+  deck-stairs.jpg ... ok  482.4 KB → 1.11 MB (--135.1%)
+  favicon.png ... ok  1.95 MB → 4.8 KB (-99.8%)
+  logo-alt.png ... ok  356.7 KB → 257.8 KB (-27.7%)
+  logo-dark.png ... ok  1.85 MB → 101.6 KB (-94.6%)
+  logo-new.png ... ok  372.6 KB → 129.8 KB (-65.2%)
+  logo.png ... ok  372.6 KB → 129.8 KB (-65.2%)
+  og-image.png ... ok  1.82 MB → 136.7 KB (-92.7%)
+  roofing-installation.jpg ... ok  346.0 KB → 997.1 KB (--188.2%)
+  roofing-shingles.jpg ... ok  243.8 KB → 581.6 KB (--138.6%)
+  roofing-skylight-repair.jpg ... ok  246.0 KB → 637.4 KB (--159.2%)
+  roofing-skylight.jpg ... ok  297.5 KB → 804.1 KB (--170.3%)
+  roofing-underlayment.jpg ... ok  252.5 KB → 612.0 KB (--142.4%)
+  roofing-valley.jpg ... ok  258.2 KB → 654.6 KB (--153.5%)
+
+=== TOTALS ===
+Sources : 13.35 MB across 21 files
+Outputs : 15.26 MB across 122 variants
+Saved   : -1994600 B (-14.2%)
+
+Snippets written to reports/picture-snippets.txt
